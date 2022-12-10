@@ -23,6 +23,7 @@ UnityProject/[Aa]ssets/Plugins/Editor/JetBrains*
 # Visual Studio cache directory
 UnityProject/.vs/
 *.vsconfig
+*.vscode
 
 # Gradle cache directory
 UnityProject/.gradle/
