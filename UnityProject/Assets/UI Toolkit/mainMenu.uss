@@ -1,0 +1,35 @@
+.button {
+}
+
+.menu-button {
+    margin-top: 3px;
+    margin-bottom: 3px;
+    width: 40%;
+    height: 10%;
+    border-left-width: 4px;
+    border-right-width: 4px;
+    border-top-width: 4px;
+    border-bottom-width: 4px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    background-color: rgba(107, 183, 27, 255);
+    font-size: 20px;
+}
+
+.menu-screen {
+    width: 100%;
+    height: 100%;
+    align-items: stretch;
+    flex-grow: 1;
+    flex-shrink: 1;
+    background-color: rgb(183, 144, 84);
+}
+
+.menu-label {
+    width: 100%;
+    height: 30%;
+    align-items: center;
+    justify-content: center;
+}
