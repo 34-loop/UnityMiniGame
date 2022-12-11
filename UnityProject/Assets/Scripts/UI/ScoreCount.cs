@@ -24,18 +24,7 @@ public class ScoreCount : MonoBehaviour
     {
         
     }
-     void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag != "PlayerClick")
-        {
-            Debug.Log("Scored!");
-            scoreCount++;
-            score.text = "Score: " + scoreCount;
-        }
-       
-
-    }
-
+     
 
 
 

@@ -17,15 +17,6 @@ public class DestroyOnClick : MonoBehaviour
             
         }
         
-    }
-
-    //void DestroyMouse()
-    //{
-    //    Destroy(gameObject);
-    //}
-
-
-
-
+    }  
 
 }
