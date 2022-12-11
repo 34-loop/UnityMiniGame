@@ -12,14 +12,21 @@ public class MouseMovement : MonoBehaviour
     //Скорость мыши
     public float speed = 1.0f;
 
+    //Скорость поворота мыши в радианах
+    public float rotSpeed = 10f;
+
     //Внутренний таймер мыши
     public float timer;
     //Мозг мыши
     public bool wait=true;
+    public bool needToRotate=true;
 
 
     //Цель движения мыши
     private Vector3 destination;
+
+    //Цель движения мыши
+    private Vector3 targetAngle;
 
 
     //Генератор случайных чисел
@@ -33,29 +40,34 @@ public class MouseMovement : MonoBehaviour
 
 
         
-    void findNewDestination()
+    void FindNewDestination()
     {
         destination= new Vector3(map.maxx*NextFloat(randObj),map.maxy*NextFloat(randObj),0);
     }
 
 
 
-    void LookAt()
+    void FindLookAtAngle()
     {
         Vector2 mouseDir = new Vector2(0.0f,1.0f);
         Vector2 destination2 = (destination-transform.position);
         float lookAtAngle = Mathf.Rad2Deg*Mathf.Acos(Vector2.Dot(mouseDir,destination2)/destination2.magnitude);
-
-        if(Vector2.Dot(mouseDir,destination2)>0)
+        if(destination2.x>0)
         {
             lookAtAngle=-lookAtAngle;
         }
+        targetAngle=new Vector3(0.0f,0.0f,lookAtAngle);
 
-        transform.rotation = Quaternion.Euler(new Vector3(0.0f,0.0f,lookAtAngle));
+        
     }
     void Walk()
     {
         transform.position= transform.position + speed * (destination-transform.position) * Time.deltaTime;
+    }
+
+    void Rotate()
+    {
+       transform.rotation=Quaternion.Euler(targetAngle);
     }
 
     void Think()
@@ -65,10 +77,11 @@ public class MouseMovement : MonoBehaviour
         {
             if(timer>timeToWait)
             {
-                findNewDestination();
-                LookAt();
+                FindNewDestination();
+                FindLookAtAngle();
                 timer=0;
                 wait=false;
+                needToRotate=true;
             }
         }
         else
@@ -98,9 +111,20 @@ public class MouseMovement : MonoBehaviour
     void Update()
     {
         Think();
+    }
+    void FixedUpdate()
+    {
         if (!wait)
         {
-            Walk();
+            if (needToRotate)
+            {
+                Rotate();
+                needToRotate=false;
+            }
+            else
+            {
+                Walk();
+            }
         }
     }
 }
