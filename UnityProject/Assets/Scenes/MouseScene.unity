@@ -426,7 +426,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 169567637, guid: 7b91f9be8e55abf4199226544534ed86, type: 3}
       propertyPath: maxMouse
-      value: 999
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 720159430651553041, guid: 7b91f9be8e55abf4199226544534ed86, type: 3}
       propertyPath: m_Name

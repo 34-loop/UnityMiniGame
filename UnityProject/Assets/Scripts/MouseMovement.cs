@@ -12,15 +12,23 @@ public class MouseMovement : MonoBehaviour
     //Скорость мыши
     public float speed = 1.0f;
 
+    //Скорость поворота мыши в радианах
+    public float rotSpeed = 0.33f;
+    public float timeCount = 0.0f;
+
     //Внутренний таймер мыши
     public float timer;
     //Мозг мыши
     public bool wait=true;
+    public bool needToRotate=true;
 
 
     //Цель движения мыши
     private Vector3 destination;
 
+    //Цель поворота мыши
+    private Quaternion targetAngle;
+    private Quaternion oldAngle;
 
     //Генератор случайных чисел
     private System.Random randObj;
@@ -33,29 +41,41 @@ public class MouseMovement : MonoBehaviour
 
 
         
-    void findNewDestination()
+    void FindNewDestination()
     {
         destination= new Vector3(map.maxx*NextFloat(randObj),map.maxy*NextFloat(randObj),0);
     }
 
 
 
-    void LookAt()
+    void FindLookAtAngle()
     {
         Vector2 mouseDir = new Vector2(0.0f,1.0f);
         Vector2 destination2 = (destination-transform.position);
         float lookAtAngle = Mathf.Rad2Deg*Mathf.Acos(Vector2.Dot(mouseDir,destination2)/destination2.magnitude);
-
-        if(Vector2.Dot(mouseDir,destination2)>0)
+        if(destination2.x>0)
         {
             lookAtAngle=-lookAtAngle;
         }
-
-        transform.rotation = Quaternion.Euler(new Vector3(0.0f,0.0f,lookAtAngle));
+        targetAngle=Quaternion.Euler(new Vector3(0.0f,0.0f,lookAtAngle));
+        oldAngle=transform.rotation;
+        
     }
     void Walk()
     {
         transform.position= transform.position + speed * (destination-transform.position) * Time.deltaTime;
+    }
+
+    void Rotate()
+    {
+        transform.rotation = Quaternion.Lerp(oldAngle, targetAngle,timeCount);
+        timeCount = timeCount + Time.deltaTime;
+
+        if(timeCount>1.0f)
+        {
+            needToRotate=false;
+            timeCount=0.0f;
+        }
     }
 
     void Think()
@@ -65,10 +85,11 @@ public class MouseMovement : MonoBehaviour
         {
             if(timer>timeToWait)
             {
-                findNewDestination();
-                LookAt();
+                FindNewDestination();
+                FindLookAtAngle();
                 timer=0;
                 wait=false;
+                needToRotate=true;
             }
         }
         else
@@ -98,9 +119,19 @@ public class MouseMovement : MonoBehaviour
     void Update()
     {
         Think();
+    }
+    void FixedUpdate()
+    {
         if (!wait)
         {
-            Walk();
+            if (needToRotate)
+            {
+                Rotate();
+            }
+            else
+            {
+                Walk();
+            }
         }
     }
 }
