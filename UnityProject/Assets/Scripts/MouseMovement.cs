@@ -13,7 +13,8 @@ public class MouseMovement : MonoBehaviour
     public float speed = 1.0f;
 
     //Скорость поворота мыши в радианах
-    public float rotSpeed = 10f;
+    public float rotSpeed = 0.33f;
+    public float timeCount = 0.0f;
 
     //Внутренний таймер мыши
     public float timer;
@@ -25,9 +26,9 @@ public class MouseMovement : MonoBehaviour
     //Цель движения мыши
     private Vector3 destination;
 
-    //Цель движения мыши
-    private Vector3 targetAngle;
-
+    //Цель поворота мыши
+    private Quaternion targetAngle;
+    private Quaternion oldAngle;
 
     //Генератор случайных чисел
     private System.Random randObj;
@@ -56,8 +57,8 @@ public class MouseMovement : MonoBehaviour
         {
             lookAtAngle=-lookAtAngle;
         }
-        targetAngle=new Vector3(0.0f,0.0f,lookAtAngle);
-
+        targetAngle=Quaternion.Euler(new Vector3(0.0f,0.0f,lookAtAngle));
+        oldAngle=transform.rotation;
         
     }
     void Walk()
@@ -67,7 +68,14 @@ public class MouseMovement : MonoBehaviour
 
     void Rotate()
     {
-       transform.rotation=Quaternion.Euler(targetAngle);
+        transform.rotation = Quaternion.Lerp(oldAngle, targetAngle,timeCount);
+        timeCount = timeCount + Time.deltaTime;
+
+        if(timeCount>1.0f)
+        {
+            needToRotate=false;
+            timeCount=0.0f;
+        }
     }
 
     void Think()
@@ -119,7 +127,6 @@ public class MouseMovement : MonoBehaviour
             if (needToRotate)
             {
                 Rotate();
-                needToRotate=false;
             }
             else
             {
