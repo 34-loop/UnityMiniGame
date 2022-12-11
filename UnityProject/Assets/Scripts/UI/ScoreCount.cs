@@ -7,25 +7,38 @@ public class ScoreCount : MonoBehaviour
 {
     public int scoreCount;
     public Label score;
-    public Button testButton;
-
+    
+   
 
     // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
-        scoreCount = 0;
         var root = GetComponent<UIDocument>().rootVisualElement;
+
+        scoreCount = 0;
         score = root.Q<Label>("score-count");
-        testButton = root.Q<Button>("test-button");
-        testButton.clicked += AddScore;
-    }
-    public void AddScore() {
-
-        scoreCount++;
         score.text = "Score: " + scoreCount;
-
-       
+        
     }
-    
-    
+    public void Update()
+    {
+        
+    }
+     void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag != "PlayerClick")
+        {
+            Debug.Log("Scored!");
+            scoreCount++;
+            score.text = "Score: " + scoreCount;
+        }
+       
+
+    }
+
+
+
+
+
+
 }
