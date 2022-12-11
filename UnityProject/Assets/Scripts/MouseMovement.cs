@@ -39,6 +39,20 @@ public class MouseMovement : MonoBehaviour
     }
 
 
+
+    void LookAt()
+    {
+        Vector2 mouseDir = new Vector2(0.0f,1.0f);
+        Vector2 destination2 = (destination-transform.position);
+        float lookAtAngle = Mathf.Rad2Deg*Mathf.Acos(Vector2.Dot(mouseDir,destination2)/destination2.magnitude);
+
+        if(Vector2.Dot(mouseDir,destination2)>0)
+        {
+            lookAtAngle=-lookAtAngle;
+        }
+
+        transform.rotation = Quaternion.Euler(new Vector3(0.0f,0.0f,lookAtAngle));
+    }
     void Walk()
     {
         transform.position= transform.position + speed * (destination-transform.position) * Time.deltaTime;
@@ -52,6 +66,7 @@ public class MouseMovement : MonoBehaviour
             if(timer>timeToWait)
             {
                 findNewDestination();
+                LookAt();
                 timer=0;
                 wait=false;
             }
