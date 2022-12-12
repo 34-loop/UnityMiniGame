@@ -5,8 +5,7 @@ using UnityEngine;
 
 public class EventController : MonoBehaviour
 {
-    public delegate void EventHandler();
-    public Collider2D collider;
+    public delegate void EventHandler(); 
     public event EventHandler OnMouseKilled;
     // Start is called before the first frame update
     void Start()
@@ -15,9 +14,9 @@ public class EventController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collider.gameObject.CompareTag("PlayerClick"))
+        if (collision.gameObject.CompareTag("PlayerClick"))
         {
             OnMouseKilled?.Invoke();
         }

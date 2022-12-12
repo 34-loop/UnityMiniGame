@@ -4,8 +4,8 @@
 .menu-button {
     margin-top: 3px;
     margin-bottom: 3px;
-    width: 40%;
-    height: 10%;
+    width: 150px;
+    height: 50px;
     border-left-width: 4px;
     border-right-width: 4px;
     border-top-width: 4px;
@@ -14,8 +14,13 @@
     border-bottom-left-radius: 20px;
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
-    background-color: rgba(107, 183, 27, 255);
+    background-color: rgb(107, 183, 27);
     font-size: 20px;
+    border-left-color: rgba(202, 193, 52, 255);
+    border-right-color: rgba(202, 193, 52, 255);
+    border-top-color: rgba(202, 193, 52, 255);
+    border-bottom-color: rgba(202, 193, 52, 255);
+    color: rgba(255, 254, 254, 255);
 }
 
 .menu-screen {
@@ -32,4 +37,15 @@
     height: 30%;
     align-items: center;
     justify-content: center;
+}
+
+.title {
+    font-size: 50px;
+    -unity-text-outline-width: 2px;
+    -unity-font-style: bold;
+    color: rgb(164, 255, 124);
+    -unity-text-outline-color: rgb(0, 0, 0);
+    width: 300px;
+    height: 70px;
+    -unity-text-align: upper-center;
 }

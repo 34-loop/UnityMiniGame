@@ -40,7 +40,7 @@ public class PlayerControls : MonoBehaviour
         if (notSpawned)
             {
                 Vector3 mousePos = screenPos;
-                var wPoint =Camera.main.ScreenToWorldPoint(mousePos);
+                var wPoint = Camera.main.ScreenToWorldPoint(mousePos);
                 Instantiate(joyStickPrefab, new Vector3(wPoint.x,wPoint.y,0.0f), Quaternion.identity);
                 notSpawned=false;
             }
