@@ -8,11 +8,11 @@ PlayerSettings:
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
-  defaultScreenOrientation: 4
+  defaultScreenOrientation: 2
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: DefaultCompany
+  companyName: 34-loop
   productName: MouseHunt
   defaultCursor: {fileID: 2800000, guid: a25e776cc43761f468b56c4b4d75a70d, type: 3}
   cursorHotspot: {x: 0, y: 0}
