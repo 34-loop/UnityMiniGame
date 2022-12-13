@@ -4,8 +4,8 @@
         <ui:VisualElement name="menu-label" class="menu-label">
             <ui:Label text="Mouse Hunt" display-tooltip-when-elided="true" name="game-title" class="label title" style="height: 51px; width: 118px;" />
         </ui:VisualElement>
-        <ui:VisualElement name="menu-bottom" style="width: 100%; height: 100%; align-items: center;">
-            <ui:VisualElement name="buttons" style="width: 40%; height: 100%; align-items: center; justify-content: space-around; margin-left: 1px; margin-right: 1px; margin-top: 10px; margin-bottom: 10px; padding-left: 1px; padding-right: 1px; padding-top: 1px; padding-bottom: 1px;">
+        <ui:VisualElement name="menu-bottom" style="width: 100%; height: 100%; align-items: center; position: relative;">
+            <ui:VisualElement name="buttons" style="width: 40%; height: 100%; align-items: center; justify-content: space-around; margin-left: 1px; margin-right: 1px; margin-top: 10px; margin-bottom: 10px; padding-left: 1px; padding-right: 1px; padding-top: 1px; padding-bottom: 1px; position: relative;">
                 <ui:Button text="Start" display-tooltip-when-elided="true" name="start-button" class="menu-button" />
                 <ui:Button text="Options" display-tooltip-when-elided="true" name="options-button" class="button menu-button" />
                 <ui:Button text="Exit" display-tooltip-when-elided="true" name="exit-button" class="menu-button" />
