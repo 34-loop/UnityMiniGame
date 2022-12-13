@@ -1,8 +1,0 @@
-<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <ui:VisualElement style="height: 100%; width: auto; align-items: flex-end;">
-        <ui:VisualElement style="width: 100%; height: 50%; align-items: stretch; flex-direction: row-reverse;">
-            <ui:Label text="X1" display-tooltip-when-elided="true" style="width: 40px; height: 50px; -unity-text-align: middle-center; font-size: 16px; -unity-font-style: bold; -unity-text-outline-width: 1px; -unity-text-outline-color: rgba(255, 255, 255, 255);" />
-            <ui:IMGUIContainer style="width: 50px; height: 50px; background-image: url(&apos;project://database/Assets/Art/Sprites/cheese.png?fileID=2800000&amp;guid=e59743d484009d44996790b054419189&amp;type=3#cheese&apos;); margin-left: 2px; margin-right: 2px; margin-top: 2px; margin-bottom: 2px;" />
-        </ui:VisualElement>
-    </ui:VisualElement>
-</ui:UXML>

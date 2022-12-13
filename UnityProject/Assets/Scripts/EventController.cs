@@ -10,16 +10,15 @@ public class EventController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("Working");
+        
     }
 
     // Update is called once per frame
-    void OnCollisionEnter2D(Collision2D collision)
+    public void RegisterMouseKilled()
     {
-        if (collision.gameObject.CompareTag("PlayerClick"))
-        {
-            OnMouseKilled?.Invoke();
-        }
         
+            OnMouseKilled?.Invoke();
+            Debug.Log("Test");
+              
     }
 }
