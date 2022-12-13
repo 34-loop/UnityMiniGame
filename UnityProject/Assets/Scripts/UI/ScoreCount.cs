@@ -17,7 +17,7 @@ public class ScoreCount : MonoBehaviour
 
         scoreCount = 0;
         score = root.Q<Label>("score-count");
-        score.text = "Score: " + scoreCount;
+        
         
     }
     public void Update()
