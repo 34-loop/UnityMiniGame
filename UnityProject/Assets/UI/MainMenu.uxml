@@ -1,5 +1,5 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <Style src="project://database/Assets/UI%20Toolkit/mainMenu.uss?fileID=7433441132597879392&amp;guid=16048c858c13f4e4e8338511f5bea2a1&amp;type=3#mainMenu" />
+    <Style src="project://database/Assets/UI/mainMenu.uss?fileID=7433441132597879392&amp;guid=16048c858c13f4e4e8338511f5bea2a1&amp;type=3#mainMenu" />
     <ui:VisualElement name="main-menu-screen" class="menu-screen" style="background-image: url(&apos;project://database/Assets/Art/Sprites/background.png?fileID=2800000&amp;guid=f11672db3c6b6a242b4a3b9d1487ff57&amp;type=3#background&apos;);">
         <ui:VisualElement name="menu-label" class="menu-label">
             <ui:Label text="Mouse Hunt" display-tooltip-when-elided="true" name="game-title" class="label title" style="height: 51px; width: 118px;" />
