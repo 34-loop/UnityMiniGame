@@ -45,6 +45,8 @@ public class MouseSpawner : MonoBehaviour
         }
     }
 
+
+    //Generate random float between -0.5 and 0.5
     float NextFloat(System.Random random)
     {
 
@@ -54,7 +56,35 @@ public class MouseSpawner : MonoBehaviour
 
     Vector3 findNewSpawnPoint()
     {
-        return new Vector3(map.maxx*NextFloat(randObj),map.maxy*NextFloat(randObj),0);
+        return new Vector3(map.maxx*2*NextFloat(randObj),map.maxy*2*NextFloat(randObj),0);
+    }
+
+
+    void SpawnMouseInRandomPosition()
+    {
+        if (timeToSpawn)
+        {
+            if (mouseCounter<maxMouse)
+            {
+                Instantiate(mousePrefab, findNewSpawnPoint(), Quaternion.identity);
+                mouseCounter++;
+            }
+        }
+    }
+
+    void SpawnMouseOnTheEdges()
+    {
+        if (timeToSpawn)
+        {
+            if (mouseCounter<maxMouse)
+            {
+                Instantiate(mousePrefab, new Vector3(map.maxx,map.maxy,0), Quaternion.identity);
+                Instantiate(mousePrefab, new Vector3(map.maxx,map.miny,0), Quaternion.identity);
+                Instantiate(mousePrefab, new Vector3(map.minx,map.maxy,0), Quaternion.identity);
+                Instantiate(mousePrefab, new Vector3(map.minx,map.miny,0), Quaternion.identity);
+                mouseCounter++;
+            }
+        }
     }
 
     // Start is called before the first frame update
@@ -68,13 +98,7 @@ public class MouseSpawner : MonoBehaviour
     void Update()
     {
         SimpleTimer();
-        if (timeToSpawn)
-        {
-            if (mouseCounter<maxMouse)
-            {
-                Instantiate(mousePrefab, findNewSpawnPoint(), Quaternion.identity);
-                mouseCounter++;
-            }
-        }
+        SpawnMouseInRandomPosition();
+        //SpawnMouseOnTheEdges();
     }
 }

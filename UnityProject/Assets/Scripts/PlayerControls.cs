@@ -78,8 +78,6 @@ public class PlayerControls : MonoBehaviour
         {
             Touch activeTouch = Touch.activeFingers[0].currentTouch;
 
-            Debug.Log($"Phase: {activeTouch.phase} | Position: {activeTouch.startScreenPosition}");
-
             if(activeTouch.phase == TouchPhase.Began)
             {
                 SpawnPaw(activeTouch.startScreenPosition);

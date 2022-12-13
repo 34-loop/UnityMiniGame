@@ -9,10 +9,21 @@ public class MapBorders : MonoBehaviour
     public float miny = 0.0f;
     public float maxy = 10.0f;
 
+    private bool loadBorders = false;
+
+    void LoadMapBorders()
+    {
+        maxx = gameObject.transform.GetChild(1).position.x;
+        maxy = gameObject.transform.GetChild(1).position.y;
+        minx= -maxx;
+        miny=-maxy;
+        loadBorders=true;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        LoadMapBorders();        
     }
 
     // Update is called once per frame
