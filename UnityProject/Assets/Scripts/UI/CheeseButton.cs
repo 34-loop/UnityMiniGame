@@ -6,6 +6,7 @@ using UnityEngine.UIElements;
 public class CheeseButton : MonoBehaviour
 {
     private Button _cheeseButton;
+    public GameObject cheese;
 
     // Start is called before the first frame update
     void Start()
@@ -23,7 +24,8 @@ public class CheeseButton : MonoBehaviour
     }
     void OnCheeseButtonClicked() 
     {
-        Debug.Log("Cheese activated");  
+        Debug.Log("Cheese activated");
+        GameObject.Instantiate<GameObject>(cheese);
  
     }
 
