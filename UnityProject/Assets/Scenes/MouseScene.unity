@@ -553,6 +553,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cheese: {fileID: 4874608141550494001, guid: ad990e8a78948ef4fa8408b980762c7b, type: 3}
+  click: {fileID: 8300000, guid: 99348d26b121bdf40bca2ff30b000207, type: 3}
 --- !u!1 &2035059516
 GameObject:
   m_ObjectHideFlags: 0
