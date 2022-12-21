@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class DestroyOnClick : MonoBehaviour
 {
-    
+    public EventController eventController;
 
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Collision");
         if (other.gameObject.tag == "PlayerClick")
         {
             Destroy(gameObject);
+            eventController.RegisterMouseKilled();
             
         }
         
